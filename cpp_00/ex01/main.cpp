@@ -26,17 +26,17 @@ int    add_contact(PhoneBook *phonebook)
 
 int    search_contact(PhoneBook *phonebook)
 {
-
+    return (0);
 }
 
 int    print_contact(PhoneBook *phonebook)
 {
-
+    return (0);
 }
 
 int   ft_exit(PhoneBook *phonebook)
 {
-    exit(0);
+    return (0);
 }
 
 int    print_instructions(void)
@@ -66,10 +66,14 @@ int main()
         else if (command == "SEARCH")
             search_contact(&test);
         else if (command == "EXIT")
+        {
             ft_exit(&test);
+            return (0);
+        }
         else if (command == "HELP")
             print_instructions();
         else
             std::cout << "Invalid command" << std::endl;
     }
+    return (0);
 }
