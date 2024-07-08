@@ -1,16 +1,13 @@
 #include "PhoneBook_main.hpp"
 
-int    add_contact(PhoneBook *phonebook)
+int    add_contact(PhoneBook *phonebook, int id)
 {
-    int id;
     std::string first_name;
     std::string last_name;
     std::string nickname;
     std::string Phone_number;
     std::string Darkest_secret;
 
-    std::cout << "Enter Contact id: ";
-    std::cin >> id;
     std::cout << "Enter Contact first name: ";
     std::getline(std::cin, first_name);
     std::cout << "Enter Contact last name: ";
@@ -22,22 +19,24 @@ int    add_contact(PhoneBook *phonebook)
     std::cout << "Enter Contact Darkest secret: ";
     std::getline(std::cin, Darkest_secret);
     phonebook->add_contact(id, first_name, last_name, nickname, Phone_number, Darkest_secret);
+    return 0;
 }
 
 int    search_contact(PhoneBook *phonebook)
 {
+    phonebook->search_contact();
     return (0);
 }
 
-int    print_contact(PhoneBook *phonebook)
-{
-    return (0);
-}
+// int    print_contact(PhoneBook *phonebook)
+// {
+//     return (0);
+// }
 
-int   ft_exit(PhoneBook *phonebook)
-{
-    return (0);
-}
+// int   ft_exit(PhoneBook *phonebook)
+// {
+//     return (0);
+// }
 
 int    print_instructions(void)
 {
@@ -47,11 +46,13 @@ int    print_instructions(void)
     std::cout << "2. SEARCH: to search for an exicting contact" << std::endl;
     std::cout << "3. EXIT: to exit." << std::endl;
     std::cout << "4. HELP: to print the instructions." << std::endl;
+    return 0;
 }
 
 int main()
 {
     std::string command;
+    int index = 0;
     PhoneBook   test;
 
     std::cout << "Welcome to our phonebook service" << std::endl;
@@ -62,14 +63,17 @@ int main()
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
         if (command == "ADD")
-            add_contact(&test);
+        {
+            if (index <= 7)
+                add_contact(&test, index++);
+        }
         else if (command == "SEARCH")
             search_contact(&test);
-        else if (command == "EXIT")
-        {
-            ft_exit(&test);
-            return (0);
-        }
+        // else if (command == "EXIT")
+        // {
+        //     ft_exit(&test);
+        //     return (0);
+        // }
         else if (command == "HELP")
             print_instructions();
         else

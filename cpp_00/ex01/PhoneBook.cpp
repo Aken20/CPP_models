@@ -15,16 +15,22 @@ void PhoneBook::add_contact(int i, std::string first_name, std::string last_name
 void PhoneBook::search_contact()
 {
     int i;
-    std::string index;
+    std::string sy;
 
     i = 0;
-    std::cout << "     index|first name| last name|  nickname" << std::endl;
+    std::cout << "  index  |first name| last name|nickname  " << std::endl;
     {
-        this->contacts[i].printf_contact(i);
-        i++;
+        while (i < 8)
+        {
+            this->contacts[i].printf_contact(i);
+            i++;
+        }
     }
     std::cout << "Enter the index of the contact you want to see: ";
-    std::getline(std::cin, index);
-    i = std::stoi(index);
-    this->contacts[i].printf_contact(i);
+    std::getline(std::cin, sy);
+    i = std::atoi(sy.c_str());
+    if (i >= 0 && i < 8)
+        this->contacts[i].printf_contact(i);
+    else
+        std::cout << "Invalid input";
 }

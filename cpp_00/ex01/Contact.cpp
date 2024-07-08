@@ -38,7 +38,7 @@
         this->Darkest_secret = "Darkest secret: " + Darkest_secret;
         return (this->Darkest_secret);
     }
-    Contact Contact::set_contact(int i, std::string first_name, std::string last_name, std::string nickname, std::string Phone_number, std::string Darkest_secret)
+    void Contact::set_contact(int i, std::string first_name, std::string last_name, std::string nickname, std::string Phone_number, std::string Darkest_secret)
     {
         this->id = i;
         this->first_name = first_name;
@@ -49,7 +49,7 @@
     }
     void Contact::printf_contact(int i)
     {
-        std::cout << i << " | " << this->first_name << " | " << this->last_name << " | " << this->nickname << " | " << this->Phone_number << " | " << this->Darkest_secret<< std::endl;
+        std::cout << "     " << i << "    | " << this->first_name << " | " << this->last_name << " | " << this->nickname << " | " << this->Phone_number << " | " << this->Darkest_secret<< std::endl;
     }
     int Contact::get_id()
     {
