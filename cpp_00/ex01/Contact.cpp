@@ -15,27 +15,27 @@
     }
     std::string Contact::set_first_name(std::string first_name)
     {
-        this->first_name = "First name: " + first_name;
+        this->first_name = first_name;
         return (this->first_name);
     }
     std::string Contact::set_last_name(std::string last_name)
     {
-        this->last_name = "Last name: " + last_name;
+        this->last_name = last_name;
         return (this->last_name);
     }
     std::string Contact::set_nickname(std::string nickname)
     {
-        this->nickname = "Nickname: " + nickname;
+        this->nickname = nickname;
         return (this->nickname);
     }
     std::string Contact::set_Phone_number(std::string Phone_number)
     {
-        this->Phone_number = "Phone number: " + Phone_number;
+        this->Phone_number = Phone_number;
         return (this->Phone_number);
     }
     std::string Contact::set_Darkest_secret(std::string Darkest_secret)
     {
-        this->Darkest_secret = "Darkest secret: " + Darkest_secret;
+        this->Darkest_secret = Darkest_secret;
         return (this->Darkest_secret);
     }
     void Contact::set_contact(int i, std::string first_name, std::string last_name, std::string nickname, std::string Phone_number, std::string Darkest_secret)
