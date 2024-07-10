@@ -28,15 +28,11 @@ int    search_contact(PhoneBook *phonebook)
     return (0);
 }
 
-// int    print_contact(PhoneBook *phonebook)
-// {
-//     return (0);
-// }
-
-// int   ft_exit(PhoneBook *phonebook)
-// {
-//     return (0);
-// }
+int   ft_exit(PhoneBook *phonebook)
+{
+    phonebook->~PhoneBook();
+    return (0);
+}
 
 int    print_instructions(void)
 {
@@ -69,11 +65,11 @@ int main()
         }
         else if (command == "SEARCH")
             search_contact(&test);
-        // else if (command == "EXIT")
-        // {
-        //     ft_exit(&test);
-        //     return (0);
-        // }
+        else if (command == "EXIT")
+        {
+            ft_exit(&test);
+            return (0);
+        }
         else if (command == "HELP")
             print_instructions();
         else
