@@ -10,14 +10,39 @@ int    add_contact(PhoneBook *phonebook, int id)
 
     std::cout << "Enter Contact first name: ";
     std::getline(std::cin, first_name);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     std::cout << "Enter Contact last name: ";
     std::getline(std::cin, last_name);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     std::cout << "Enter Contact nickname: ";
     std::getline(std::cin, nickname);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     std::cout << "Enter Contact Phone number: ";
     std::getline(std::cin, Phone_number);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     std::cout << "Enter Contact Darkest secret: ";
     std::getline(std::cin, Darkest_secret);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     phonebook->add_contact(id, first_name, last_name, nickname, Phone_number, Darkest_secret);
     return 0;
 }
@@ -41,7 +66,6 @@ int    print_instructions(void)
     std::cout << "1. ADD: to add a new contact." << std::endl;
     std::cout << "2. SEARCH: to search for an exicting contact" << std::endl;
     std::cout << "3. EXIT: to exit." << std::endl;
-    std::cout << "4. HELP: to print the instructions." << std::endl;
     return 0;
 }
 
@@ -58,10 +82,18 @@ int main()
     {
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
+        if (!std::cin || command.length() == 0)
+        {
+            if (!std::cin)
+                std::cout << "\n";
+            std::cout << "Invalid Input" << std::endl;
+            exit(1);
+        }
         if (command == "ADD")
         {
-            if (index <= 7)
-                add_contact(&test, index++);
+            if (index > 7)
+                index = 0;
+            add_contact(&test, index++);
         }
         else if (command == "SEARCH")
             search_contact(&test);
@@ -70,8 +102,6 @@ int main()
             ft_exit(&test);
             return (0);
         }
-        else if (command == "HELP")
-            print_instructions();
         else
             std::cout << "Invalid command" << std::endl;
     }

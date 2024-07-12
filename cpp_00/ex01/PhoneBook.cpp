@@ -22,7 +22,7 @@ void PhoneBook::search_contact()
     {
         while (i < 8)
         {
-            this->contacts[i].printf_contact(i);
+            this->contacts[i].printContactSummary(i);
             i++;
         }
     }
@@ -30,7 +30,7 @@ void PhoneBook::search_contact()
     std::getline(std::cin, sy);
     i = std::atoi(sy.c_str());
     if (i >= 0 && i < 8)
-        this->contacts[i].printf_contact(i);
+        this->contacts[i].printContactSummary(i);
     else
         std::cout << "Invalid input";
 }
