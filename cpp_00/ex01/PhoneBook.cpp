@@ -18,19 +18,24 @@ void PhoneBook::search_contact()
     std::string sy;
 
     i = 0;
-    std::cout << "  index  |first name| last name|nickname  " << std::endl;
+    std::cout << "   index  |first name|last name |nickname  " << std::endl;
     {
         while (i < 8)
         {
-            this->contacts[i].printContactSummary(i);
+            this->contacts[i].printcontact(i);
             i++;
         }
     }
     std::cout << "Enter the index of the contact you want to see: ";
     std::getline(std::cin, sy);
+    if (!std::cin)
+    {
+        std::cout << "\nInvalid Input\n";
+        exit(1);
+    }
     i = std::atoi(sy.c_str());
     if (i >= 0 && i < 8)
-        this->contacts[i].printContactSummary(i);
+        this->contacts[i].printcontact(i);
     else
         std::cout << "Invalid input";
 }
