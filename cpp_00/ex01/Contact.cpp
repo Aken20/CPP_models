@@ -36,7 +36,6 @@
                 << truncate(nickname, 10) << std::endl;
     }
 
-
     std::string Contact::truncate(const std::string &str, size_t width) const {
         int         i = 0;
         std::string n_str;
