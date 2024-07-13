@@ -62,9 +62,9 @@ int   ft_exit(PhoneBook *phonebook)
 int    print_instructions(void)
 {
     std::cout << "Welcome to our phonebook service" << std::endl;
-    std::cout << "to enteract with the program please use the following commands" << std::endl;
+    std::cout << "to enteract with the program please use the following commands:" << std::endl;
     std::cout << "1. ADD: to add a new contact." << std::endl;
-    std::cout << "2. SEARCH: to search for an exicting contact" << std::endl;
+    std::cout << "2. SEARCH: to search for an exicting contact." << std::endl;
     std::cout << "3. EXIT: to exit." << std::endl;
     return 0;
 }
