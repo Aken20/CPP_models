@@ -7,7 +7,7 @@ class HumanB
 {
     private:
         std::string name;
-        static Weapon &weapon;
+        Weapon &weapon;
     
     public:
         HumanB(std::string name);

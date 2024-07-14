@@ -1,9 +1,10 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name)
-        : name(name)
+        : name(name), weapon(Weapon("empty_hands"))
 {
     this->set_name(name);
+    this->weapon = Weapon("embty_hands");
 };
 HumanB::~HumanB()
 {
