@@ -30,7 +30,7 @@
         this->Darkest_secret = Darkest_secret;
     }
     void Contact::printcontact(int index) const {
-        std::cout << std::right << "    " << index << "    |"
+        std::cout << std::right << "     " << index << "    |"
                 << truncate(first_name, 10) << "|"
                 << truncate(last_name, 10) << "|"
                 << truncate(nickname, 10) << std::endl;

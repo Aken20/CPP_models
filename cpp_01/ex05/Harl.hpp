@@ -10,6 +10,10 @@ class Harl
         Harl();
         ~Harl();
         void complain( std::string level );
+        const void pdebug(void (*Harl::*)(void));
+        const void (*pinfo)(void);
+        const void (*pwarning)( void );
+        const void (*_perror)( void );
     
     private:
 

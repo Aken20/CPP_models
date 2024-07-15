@@ -2,7 +2,8 @@
 
 Harl::Harl(void)
 {
-
+    this->pdebug((Harl::debug));
+    this->_perror = Harl::error;
 };
 Harl::~Harl(void)
 {
@@ -11,7 +12,7 @@ Harl::~Harl(void)
 void Harl::complain( std::string level )
 {
     void (*func)(void);
-    *level();
+    *func = level;
 };
 void Harl::debug( void )
 {
