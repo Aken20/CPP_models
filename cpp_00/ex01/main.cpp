@@ -82,7 +82,7 @@ int main()
     {
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
-        if (!std::cin || command.length() == 0)
+        if (!std::cin)
         {
             if (!std::cin)
                 std::cout << "\n";
