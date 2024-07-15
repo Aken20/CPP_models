@@ -1,22 +1,35 @@
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include <fstream>
+#include <iostream>
 
-int main()
+int main(int ac, char** av)
 {
+    std::string line;
+    std::string name;
+    std::string name2;
+    size_t i = 0;
+
+    name = av[1];
+    name2 = name + ".replace";
+    if (ac != 4)
+        return 1;
+    std::ifstream file(name.c_str());
+    std::ofstream file2(name2.c_str());
+    if (!file)
+        return 1;
+    while (file)
     {
-        Weapon club = Weapon("crude spiked club");
-        HumanA bob("Bob", club);
-        bob.attack();
-        club.setType("some other type of club");
-        bob.attack();
-    }
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanB jim("Jim");
-        jim.setWeapon(club);
-        jim.attack();
-        club.setType("some other type of club");
-        jim.attack();
+        file >> line;
+        std::cout << line << std::endl;
+        while (i < line.length())
+        {
+            if (line[i] == av[2][0])
+                file2 << av[3][0];
+            else
+                file2 << line[i];
+            i++;
+        }
+        file2 << " ";
+        i = 0;
     }
     return 0;
 }

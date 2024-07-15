@@ -15,27 +15,28 @@ void Harl::complain( std::string level )
     void (Harl::*funcs[4])() =
     {
         &Harl::debug,
-        &Harl::error,
         &Harl::info,
-        &Harl::warning
+        &Harl::warning,
+        &Harl::error
     };
     std::string array[] = 
     {
         "debug",
-        "error",
         "info",
-        "warrning"
+        "warrning",
+        "error"
     };
     while (i < 4)
     {
         if (level == array[i])
         {
-            (this->*funcs[i])();
+            while (i < 4)
+                (this->*funcs[i++])();
             return ;
         }
         i++;
     }
-    std::cout << "harl have no idea what are you talking about." << std::endl;
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 };
 void Harl::debug( void )
 {
@@ -50,10 +51,10 @@ void Harl::info( void )
 void Harl::warning( void )
 {
     std::cout << "[WARNING]" << std::endl;
-    std::cout << "think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.\n" << std::endl;
+    std::cout << "think I deserve to have some extra bacon for free.\n I’ve been coming for years whereas you started working here since last month.\n" << std::endl;
 };
 void Harl::error( void )
 {
     std::cout << "[ERROR]" << std::endl;
-    std::cout << "his is unacceptable! I want to speak to the manager now.\n" << std::endl;
+    std::cout << "this is unacceptable! I want to speak to the manager now.\n" << std::endl;
 };
