@@ -2,11 +2,11 @@
 
 Zombie::Zombie()
 {
-    this->name = "default";
+    this->name = "zombie";
 };
 Zombie::~Zombie()
 {
-
+    std::cout << this->name << ": has died" << std::endl;
 };
 std::string Zombie::get_name(void)
 {

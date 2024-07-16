@@ -21,10 +21,10 @@ void Harl::complain( std::string level )
     };
     std::string array[] = 
     {
-        "debug",
-        "info",
-        "warrning",
-        "error"
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR"
     };
     while (i < 4)
     {

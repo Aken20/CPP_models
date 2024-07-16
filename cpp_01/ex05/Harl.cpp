@@ -15,16 +15,16 @@ void Harl::complain( std::string level )
     void (Harl::*funcs[4])() =
     {
         &Harl::debug,
-        &Harl::error,
         &Harl::info,
-        &Harl::warning
+        &Harl::warning,
+        &Harl::error
     };
     std::string array[] = 
     {
-        "debug",
-        "error",
-        "info",
-        "warrning"
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR"
     };
     while (i < 4)
     {
@@ -35,7 +35,7 @@ void Harl::complain( std::string level )
         }
         i++;
     }
-    std::cout << "harl have no idea what are you talking about." << std::endl;
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 };
 void Harl::debug( void )
 {
