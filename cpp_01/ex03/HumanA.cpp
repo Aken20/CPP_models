@@ -28,8 +28,8 @@ Weapon &HumanA::getWeapon(void)
 };
 void HumanA::attack()
 {
-    if (!this->weapon)
+    if (this->weapon.getType().empty())
         std::cout << this->name << " doesn't have a weapon to attack" << std::endl;
     else
-        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+        std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
 };
