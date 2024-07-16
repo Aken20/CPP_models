@@ -35,7 +35,7 @@ Fixed &Fixed::operator=(const Fixed &copy)
 
 std::ostream &operator<<(std::ostream& os, const Fixed &fixed)
 {
-    os << fixed.Fixed_point;
+    os << fixed.getRawBits();
     return os;
 };
 
