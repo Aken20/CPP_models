@@ -10,7 +10,6 @@ class HumanB
         Weapon *weapon;
     
     public:
-        HumanB();
         HumanB(std::string name);
         ~HumanB();
         std::string get_name(void);
