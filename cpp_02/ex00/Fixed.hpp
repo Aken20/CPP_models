@@ -7,7 +7,7 @@ class Fixed
 {
     private:
         int value;
-        static const int Fixed_point;
+        static const int Fixed_point = 0;
 
     public:
         Fixed(void);

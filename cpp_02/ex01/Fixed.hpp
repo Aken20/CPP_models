@@ -8,13 +8,13 @@ class Fixed
 {
     private:
         int value;
-        float Fixed_point;
+        static const int Fixed_point = 8;
 
     public:
         Fixed(void);
         Fixed(const int value);
         Fixed(const float fixed_point);
-        Fixed(const Fixed &copy);
+        Fixed(Fixed const &copy);
         ~Fixed();
         Fixed& operator=(const Fixed &copy);
         float toFloat( void ) const;
@@ -23,5 +23,6 @@ class Fixed
         void setRawBits(const int i);
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed &fixed);
+std::ostream &operator<<(std::ostream& os, const Fixed &fixed);
+
 #endif

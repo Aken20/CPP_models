@@ -7,13 +7,12 @@ Fixed::Fixed(void)
 };
 Fixed::Fixed(const int value)
 {
-    this->value = value;
-    this->Fixed_point = (int)value - value;
+    this->value = value << this->Fixed_point;
 };
 Fixed::Fixed(const float fixed_point)
 {
-    this->value = fixed_point;
-    this->Fixed_point = fixed_point;
+    this->value = roundf(fixed_point * (1 << this->Fixed_point));
+    // this->Fixed_point = fixed_point - (int)fixed_point;
 };
 Fixed::Fixed(const Fixed &copy)
 {
@@ -33,10 +32,10 @@ Fixed &Fixed::operator=(const Fixed &copy)
     return *this;
 };
 
-std::ostream &operator<<(std::ostream& os, const Fixed &fixed)
+std::ostream &operator<<(std::ostream& COUT, const Fixed &fixed)
 {
-    os << fixed.getRawBits();
-    return os;
+    COUT << fixed.toFloat();
+    return COUT;
 };
 
 int Fixed::getRawBits(void) const
@@ -49,9 +48,9 @@ void Fixed::setRawBits(const int i)
 };
 float Fixed::toFloat( void ) const
 {
-    return this->Fixed_point;
+    return ((float)this->value / (1 << this->Fixed_point));
 };
 int Fixed::toInt( void ) const
 {
-    return this->value;
+    return (roundf((float)this->value / (1 << this->Fixed_point)));
 };
