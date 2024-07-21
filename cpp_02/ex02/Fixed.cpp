@@ -20,7 +20,7 @@ Fixed::Fixed(const Fixed &copy)
 };
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+
 };
 Fixed &Fixed::operator=(const Fixed &copy)
 {
@@ -33,24 +33,49 @@ Fixed &Fixed::operator=(const Fixed &copy)
 
 Fixed& Fixed::operator+(const Fixed &T)
 {
-    this->setRawBits(this->getRawBits() + T.getRawBits());
+    this->setRawBits(this->toFloat() + T.toFloat());
     return (*this);
 };
 Fixed& Fixed::operator-(const Fixed &T)
 {
-    this->setRawBits(this->getRawBits() - T.getRawBits());
+    this->setRawBits(this->toFloat() - T.toFloat());
     return (*this);
 };
 Fixed& Fixed::operator*(const Fixed &T)
 {
-    std::cout << "a = " << (this->toFloat() * T.toFloat()) << std::endl;
     this->setRawBits(this->toFloat() * T.toFloat());
     return (*this);
 };
 Fixed& Fixed::operator/(const Fixed &T)
 {
-    this->setRawBits(this->getRawBits() / T.getRawBits());
+    this->setRawBits(this->toFloat() / T.toFloat());
     return (*this);
+};
+
+Fixed& Fixed::operator++(void)
+{
+    ++(*this).value;
+    return *this;
+};
+
+float Fixed::operator++(int)
+{
+    float m_value = this->toFloat();
+    ++(*this).value;
+    return m_value;
+};
+
+Fixed& Fixed::operator--(void)
+{
+    --(*this).value;
+    return *this;
+};
+
+float Fixed::operator--(int)
+{
+    float m_value = this->toFloat();
+    --(*this).value;
+    return m_value;
 };
 
 std::ostream &operator<<(std::ostream& COUT, const Fixed &fixed)
@@ -65,7 +90,11 @@ int Fixed::getRawBits(void) const
 };
 void Fixed::setRawBits(const int i)
 {
-    this->value = i;
+    this->value = i << this->Fixed_point;
+};
+void Fixed::setRawBits(const float i)
+{
+    this->value = roundf(i * (1 << this->Fixed_point));
 };
 float Fixed::toFloat( void ) const
 {

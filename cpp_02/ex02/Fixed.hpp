@@ -21,10 +21,15 @@ class Fixed
         Fixed& operator-(const Fixed &T);
         Fixed& operator*(const Fixed &T);
         Fixed& operator/(const Fixed &T);
+        Fixed& operator++(void);
+        Fixed& operator--(void);
+        float operator++(int i);
+        float operator--(int i);
         float toFloat( void ) const;
         int toInt( void ) const;
         int getRawBits(void) const;
         void setRawBits(const int i);
+        void setRawBits(const float i);
         static const Fixed& min(const Fixed&Fixed_A, const Fixed&Fixed_B);
         static Fixed& min(Fixed&Fixed_A, Fixed&Fixed_B);
         static const Fixed& max(const Fixed&Fixed_A, const Fixed&Fixed_B);
