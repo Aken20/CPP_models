@@ -1,8 +1,8 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main( void ){
     ClapTrap Bob("Bob");
-    ClapTrap akira("akira");
+    ScavTrap akira("akira");
 
     Bob.attack("akira");
     akira.takeDamage(0);

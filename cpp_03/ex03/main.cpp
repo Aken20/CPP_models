@@ -1,11 +1,12 @@
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main( void ){
-    ClapTrap Bob("Bob");
-    ClapTrap akira("akira");
+    DiamondTrap Bob("Bob");
+    ScavTrap akira("akira");
 
     Bob.attack("akira");
     akira.takeDamage(0);
+    Bob.whoAmI();
     Bob.beRepaired(1);
     akira.beRepaired(1);
     return 0;

@@ -1,20 +1,24 @@
-#ifndef _CLAP_TRAP_H_
-# define _CLAP_TRAP_H_
+#ifndef _SCAV_TRAP_H_
+# define _SCAV_TRAP_H_
 
 # include <iostream>
+# include "ClapTrap.hpp"
 
-class ClapTrap
+class ScavTrap : ClapTrap
 {
     private:
+        void guardGate();
+
+    protected:
         std::string Name;
         unsigned int Hit_point;
         unsigned int Energy_point;
         unsigned int Attack_damage;
 
     public:
-        ClapTrap(std::string Name);
-        ClapTrap(ClapTrap &copy);
-        ~ClapTrap();
+        ScavTrap(std::string Name);
+        ScavTrap(ScavTrap &copy);
+        ~ScavTrap();
         std::string get_name(void);
         void set_name(std::string name);
         void stats(void);
@@ -22,6 +26,5 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
-
 
 #endif

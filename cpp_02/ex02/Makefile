@@ -1,4 +1,4 @@
-NAME = test
+NAME = main
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

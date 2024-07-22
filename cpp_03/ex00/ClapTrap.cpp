@@ -2,14 +2,24 @@
 
 ClapTrap::ClapTrap(std::string Name)
 {
+    std::cout << "Default constructor called" << std::endl;
     this->Name = Name;
+    this->Hit_point = 10;
     this->Energy_point = 10;
     this->Attack_damage = 0;
-    this->Hit_point = 10;
 };
+ClapTrap::ClapTrap(ClapTrap &copy)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    this->Name = copy.Name;
+    this->Hit_point = copy.Hit_point;
+    this->Energy_point = copy.Energy_point;
+    this->Attack_damage = copy.Attack_damage;
+};
+
 ClapTrap::~ClapTrap()
 {
-
+    std::cout << "Destructor called" << std::endl;
 };
 
 std::string ClapTrap::get_name(void)
@@ -17,9 +27,19 @@ std::string ClapTrap::get_name(void)
     return this->Name;
 };
 
+void ClapTrap::set_name(std::string name)
+{
+    this->Name = name;
+}
+
+void ClapTrap::stats(void)
+{
+    std::cout << "ClapTrap : " << this->get_name() << "\nENERGY: " << this->Energy_point << " points" << "\nHP: " << this->Hit_point << " points\n" << "Attack_damage: " << this->Attack_damage << " points" << std::endl;
+}
+
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->Energy_point == 0)
+    if (this->Energy_point <= 0)
     {
         std::cout << "ClapTrap : " << this->get_name() << " does't have enough stamina" << std::endl;
         return ;
@@ -35,7 +55,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         return ;
     }
     this->Hit_point -= amount;
-    std::cout << "ClapTrap : " << this->get_name() << "has been attacked, causing him to lose " << amount << " points of hp!"<< std::endl;
+    std::cout << "ClapTrap : " << this->get_name() << " has been attacked, causing him to lose " << amount << " points of hp!"<< std::endl;
 };
 void ClapTrap::beRepaired(unsigned int amount)
 {
@@ -46,5 +66,5 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     this->Energy_point--;
     this->Hit_point += amount;
-    std::cout << "ClapTrap : " << this->get_name() << "restored " << amount << " points of hp!"<< std::endl;
+    std::cout << "ClapTrap : " << this->get_name() << " restored " << amount << " points of hp!"<< std::endl;
 };

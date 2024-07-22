@@ -1,20 +1,25 @@
-#ifndef _CLAP_TRAP_H_
-# define _CLAP_TRAP_H_
+#ifndef _DIAMOND_TRAP_H_
+# define _DIAMOND_TRAP_H_
 
 # include <iostream>
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ClapTrap
+class DiamondTrap : ScavTrap , FragTrap
 {
     private:
-        std::string Name;
+        std::string _name;
+
+    protected:
         unsigned int Hit_point;
         unsigned int Energy_point;
         unsigned int Attack_damage;
 
     public:
-        ClapTrap(std::string Name);
-        ClapTrap(ClapTrap &copy);
-        ~ClapTrap();
+        void whoAmI(void);
+        DiamondTrap(std::string Name);
+        DiamondTrap(DiamondTrap &copy);
+        ~DiamondTrap();
         std::string get_name(void);
         void set_name(std::string name);
         void stats(void);
@@ -22,6 +27,5 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
-
 
 #endif
