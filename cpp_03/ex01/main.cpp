@@ -8,5 +8,6 @@ int main( void ){
     akira.takeDamage(0);
     Bob.beRepaired(1);
     akira.beRepaired(1);
+    akira.guardGate();
     return 0;
 }

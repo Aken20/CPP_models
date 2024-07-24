@@ -14,11 +14,11 @@ class ClapTrap
     public:
         ClapTrap(std::string Name);
         ClapTrap(ClapTrap &copy);
-        ~ClapTrap();
-        std::string get_name(void);
-        void set_name(std::string name);
-        void stats(void);
-        void attack(const std::string& target);
+        virtual ~ClapTrap();
+        ClapTrap& operator=(const ClapTrap &copy);
+        virtual std::string get_name(void);
+        virtual void set_name(std::string name);
+        virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };

@@ -5,15 +5,13 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : ScavTrap , FragTrap
+class DiamondTrap : public ScavTrap , public FragTrap
 {
     private:
         std::string _name;
-
-    protected:
-        unsigned int Hit_point;
-        unsigned int Energy_point;
-        unsigned int Attack_damage;
+        unsigned int _Hit_point;
+        unsigned int _Energy_point;
+        unsigned int _Attack_damage;
 
     public:
         void whoAmI(void);
@@ -22,7 +20,6 @@ class DiamondTrap : ScavTrap , FragTrap
         ~DiamondTrap();
         std::string get_name(void);
         void set_name(std::string name);
-        void stats(void);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
