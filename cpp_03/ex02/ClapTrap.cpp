@@ -23,7 +23,6 @@ ClapTrap::~ClapTrap()
 };
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
     if (this == &copy)
         return *this;
     this->Name = copy.Name;
