@@ -1,11 +1,16 @@
 #ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP 
+#define ICHARACTER_HPP
+
+
 #include "MateriaSource.hpp"
 
 class ICharacter
 {
+    protected:
+        std::string name;
+
     public:
-        ICharacter();
+        ICharacter(std::string const & name);
         ICharacter(ICharacter const &copy);
         ICharacter &operator=(ICharacter const &copy);
         virtual ~ICharacter();

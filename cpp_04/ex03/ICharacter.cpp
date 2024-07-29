@@ -1,7 +1,8 @@
 # include "ICharacter.hpp"
 
-ICharacter::ICharacter()
+ICharacter::ICharacter(std::string const & name)
 {
+    this->name = name;
     std::cout << "ICharacter constructor" << std::endl;
 };
 

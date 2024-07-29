@@ -1,5 +1,10 @@
 #ifndef MATERIASOURCE_HPP
-#define MATERIASOURCE_HPP 
+#define MATERIASOURCE_HPP
+
+#include <iostream>
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
