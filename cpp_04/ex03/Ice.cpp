@@ -1,11 +1,11 @@
 # include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice")
+Ice::Ice() : AMateria("ice")
 {
     std::cout << "Ice constructor" << std::endl;
 };
 
-Ice::Ice(Ice const & src) : AMateria(src)
+Ice::Ice(Ice const & copy) : AMateria(copy)
 {
     std::cout << "Ice copy constructor" << std::endl;
 };
@@ -15,11 +15,11 @@ Ice::~Ice()
     std::cout << "Ice destructor" << std::endl;
 };
 
-Ice & Ice::operator=(Ice const & src)
+Ice & Ice::operator=(Ice const & copy)
 {
     std::cout << "Ice assignation operator" << std::endl;
-    if (this != &src)
-        this->type = src.type;
+    if (this != &copy)
+        this->type = copy.type;
     return *this;
 };
 

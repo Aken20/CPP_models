@@ -1,16 +1,14 @@
-#ifndef _ICE_HPP_
-#define _ICE_HPP_
-
-# include <iostream>
-# include "AMateria.hpp"
+#ifndef ICE_HPP
+#define ICE_HPP 
+#include "AMateria.hpp"
 
 class Ice : public AMateria
 {
     public:
         Ice();
-        Ice(Ice const & src);
+        Ice(Ice const & copy);
         ~Ice();
-        Ice & operator=(Ice const & src);
+        Ice & operator=(Ice const & copy);
         AMateria* clone() const;
         void use(ICharacter& target);
 };

@@ -1,12 +1,11 @@
 # include "ICharacter.hpp"
 
-ICharacter::ICharacter(std::string const & name)
+ICharacter::ICharacter()
 {
-    this->name = name;
     std::cout << "ICharacter constructor" << std::endl;
 };
 
-ICharacter::ICharacter(ICharacter const & src)
+ICharacter::ICharacter(ICharacter const & copy)
 {
     std::cout << "ICharacter copy constructor" << std::endl;
 };
@@ -16,10 +15,10 @@ ICharacter::~ICharacter()
     std::cout << "ICharacter destructor" << std::endl;
 };
 
-ICharacter & ICharacter::operator=(ICharacter const & src)
+ICharacter & ICharacter::operator=(ICharacter const & copy)
 {
     std::cout << "ICharacter assignation operator" << std::endl;
-    if (this != &src)
-        this->name = src.name;
+    if (this != &copy)
+        this->name = copy.name;
     return *this;
 };

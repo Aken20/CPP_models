@@ -1,7 +1,9 @@
-#ifndef _CHARACTER_HPP_
-#define _CHARACTER_HPP_
-
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP 
 #include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+//
 #include "ICharacter.hpp"
 
 class Character : public ICharacter
@@ -12,8 +14,8 @@ class Character : public ICharacter
 
     public:
         Character(std::string const & name);
-        Character(Character const & src);
-        operator=(Character const & src);
+        Character(Character const & copy);
+        operator=(Character const & copy);
         ~Character();
         std::string const & getName() const;
         void equip(AMateria* m);

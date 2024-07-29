@@ -6,7 +6,7 @@ Character::Character(std::string const & name): ICharacter(name)
     std::cout << "Character constructor" << std::endl;
 };
 
-Character::Character(Character const & src)
+Character::Character(Character const & copy)
 {
     std::cout << "Character copy constructor" << std::endl;
 };
@@ -19,11 +19,11 @@ Character::~Character()
     std::cout << "Character destructor" << std::endl;
 };
 
-Character & Character::operator=(Character const & src)
+Character & Character::operator=(Character const & copy)
 {
     std::cout << "Character assignation operator" << std::endl;
-    if (this != &src)
-        this->name = src.name;
+    if (this != &copy)
+        this->name = copy.name;
     return *this;
 };
 

@@ -1,24 +1,22 @@
-#include "MateriaSource.hpp"
+#include "AMateria.hpp"
 #include "Character.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 
 int main()
 {
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
+    IMateriaSource* copy = new MateriaSource();
+    copy->learnMateria(new Ice());
+    copy->learnMateria(new Cure());
     ICharacter* me = new Character("me");
     AMateria* tmp;
-    tmp = src->createMateria("ice");
+    tmp = copy->createMateria("ice");
     me->equip(tmp);
-    tmp = src->createMateria("cure");
+    tmp = copy->createMateria("cure");
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
     delete bob;
     delete me;
-    delete src;
+    delete copy;
     return 0;
 }
