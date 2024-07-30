@@ -1,12 +1,12 @@
 # include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(): IMateriaSource()
+MateriaSource::MateriaSource()
 {
     for (int i = 0; i < 4; i++)
         this->materia[i] = NULL;
 };
 
-MateriaSource::MateriaSource(MateriaSource const & copy): IMateriaSource()
+MateriaSource::MateriaSource(MateriaSource const & copy)
 {
     for (int i = 0; i < 4; i++)
         this->materia[i] = copy.materia[i];

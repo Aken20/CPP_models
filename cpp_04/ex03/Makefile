@@ -2,9 +2,7 @@ NAME = test
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	IMateriaSource.cpp \
-		MateriaSource.cpp \
-		ICharacter.cpp \
+SRCS =	MateriaSource.cpp \
 		Character.cpp \
 		AMateria.cpp \
 		Cure.cpp \

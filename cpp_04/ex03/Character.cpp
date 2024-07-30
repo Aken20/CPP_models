@@ -1,6 +1,6 @@
 # include "Character.hpp"
 
-Character::Character(std::string const & name): ICharacter(name)
+Character::Character(std::string const & name)
 {
     std::cout << "Character constructor" << std::endl;
     this->name = name;
@@ -8,7 +8,7 @@ Character::Character(std::string const & name): ICharacter(name)
         this->materia[i] = NULL;
 };
 
-Character::Character(Character const & copy): ICharacter(copy)
+Character::Character(Character const & copy)
 {
     this->name = copy.name;
     for (int i = 0; i < 4; i++)
