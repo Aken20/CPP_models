@@ -6,7 +6,7 @@ MateriaSource::MateriaSource(): IMateriaSource()
         this->materia[i] = NULL;
 };
 
-MateriaSource::MateriaSource(MateriaSource const & copy)
+MateriaSource::MateriaSource(MateriaSource const & copy): IMateriaSource()
 {
     for (int i = 0; i < 4; i++)
         this->materia[i] = copy.materia[i];

@@ -8,6 +8,7 @@ ICharacter::ICharacter(std::string const & name)
 
 ICharacter::ICharacter(ICharacter const & copy)
 {
+    this->name = copy.name;
     std::cout << "ICharacter copy constructor" << std::endl;
 };
 

@@ -1,9 +1,6 @@
 #ifndef IMATERIASOURCE_HPP
 #define IMATERIASOURCE_HPP
 
-#include <iostream>
-#include "Cure.hpp"
-#include "Ice.hpp"
 #include "AMateria.hpp"
 
 class IMateriaSource
