@@ -2,7 +2,7 @@
 
 Character::Character(std::string const & name)
 {
-    std::cout << "Character constructor" << std::endl;
+    // std::cout << "Character constructor" << std::endl;
     this->name = name;
     for (int i = 0; i < 4; i++)
         this->materia[i] = NULL;
@@ -10,6 +10,7 @@ Character::Character(std::string const & name)
 
 Character::Character(Character const & copy)
 {
+    // std::cout << "Character copy constructor" << std::endl;
     this->name = copy.name;
     for (int i = 0; i < 4 && copy.materia[i]; i++)
     {
@@ -17,28 +18,28 @@ Character::Character(Character const & copy)
             delete this->materia[i];
         this->materia[i] = copy.materia[i]->clone();
     }
-    std::cout << "Character copy constructor" << std::endl;
 };
 
 Character::~Character()
 {
+    // std::cout << "Character destructor" << std::endl;
     for (int i = 0; i < 4; i++)
         if (this->materia[i])
             delete this->materia[i];
-    std::cout << "Character destructor" << std::endl;
 };
 
 Character & Character::operator=(Character const & copy)
 {
+    std::cout << "Character assignation operator" << std::endl;
     if (this != &copy)
     {
         this->name = copy.name;
-    for (int i = 0; i < 4 && copy.materia[i]; i++)
-    {
-        if (this->materia[i])
-            delete this->materia[i];
-        this->materia[i] = copy.materia[i]->clone();
-    }
+        for (int i = 0; i < 4; i++)
+        {
+            if (this->materia[i])
+                delete this->materia[i];
+            this->materia[i] = copy.materia[i]->clone();
+        }
     }
     return *this;
 };
