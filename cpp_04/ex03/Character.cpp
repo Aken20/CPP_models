@@ -11,11 +11,11 @@ Character::Character(std::string const & name)
 Character::Character(Character const & copy)
 {
     this->name = copy.name;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4 && copy.materia[i]; i++)
     {
         if (this->materia[i])
             delete this->materia[i];
-        this->materia[i] = copy.materia[i];
+        this->materia[i] = copy.materia[i]->clone();
     }
     std::cout << "Character copy constructor" << std::endl;
 };
@@ -33,12 +33,12 @@ Character & Character::operator=(Character const & copy)
     if (this != &copy)
     {
         this->name = copy.name;
-        for (int i = 0; i < 4; i++)
-        {
-            if (this->materia[i])
-                delete this->materia[i];
-            this->materia[i] = copy.materia[i];
-        }
+    for (int i = 0; i < 4 && copy.materia[i]; i++)
+    {
+        if (this->materia[i])
+            delete this->materia[i];
+        this->materia[i] = copy.materia[i]->clone();
+    }
     }
     return *this;
 };
