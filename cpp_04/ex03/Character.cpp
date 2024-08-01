@@ -38,7 +38,8 @@ Character & Character::operator=(Character const & copy)
         {
             if (this->materia[i])
                 delete this->materia[i];
-            this->materia[i] = copy.materia[i]->clone();
+            if (copy.materia[i])
+                this->materia[i] = copy.materia[i]->clone();
         }
     }
     return *this;
