@@ -44,11 +44,11 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &copy)
     return (*this);
 };
 
-// std::ostream &Bureaucrat::operator<<(std::ostream os)
-// {
-//     os << this->get_name() << " bureaucrat grade " << this->get_grade() << ".";
-//     return os;
-// };
+std::ostream &operator<<(std::ostream &os, Bureaucrat &copy)
+{
+    os << copy.get_name() << " bureaucrat grade " << copy.get_grade() << ".";
+    return os;
+};
 
 void Bureaucrat::set_name(std::string Name)
 {

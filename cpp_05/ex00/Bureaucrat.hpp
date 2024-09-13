@@ -42,8 +42,8 @@ class Bureaucrat
         void increment(void);
         void decrement(void);
         int get_grade(void);
-        // std::ostream &operator<<(std::ostream os);
 };
+std::ostream &operator<<(std::ostream &os, Bureaucrat &copy);
 
 
 #endif

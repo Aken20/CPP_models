@@ -4,14 +4,14 @@ int main()
 {
     try
     {
-        Bureaucrat test("test", 150);
-        std::cout << test.get_name() << "and it's grade is " << test.get_grade() << "." << std::endl;
+        Bureaucrat test("test", 149);
+        std::cout << test << std::endl;
         test.decrement();
-        std::cout << test.get_name() << "and it's new grade is " << test.get_grade() << "." << std::endl;
+        std::cout << test << std::endl;
         test.set_grade(1);
-        std::cout << test.get_name() << "and it's grade is " << test.get_grade() << "." << std::endl;
+        std::cout << test << std::endl;
         test.increment();
-        std::cout << test.get_name() << "and it's new grade is " << test.get_grade() << "." << std::endl;
+        std::cout << test << std::endl;
     }
     catch (GradeTooHighException &e)
     {
