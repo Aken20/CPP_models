@@ -4,7 +4,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const char* msg): _msg(ms
 {
 };
 
-const char *Bureaucrat::GradeTooLowException::what(void) const _GLIBCXX_NOTHROW
+const char *Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
 {
     return _msg;
 };
@@ -13,30 +13,34 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char* msg): _msg(
 {
 };
 
-const char *Bureaucrat::GradeTooHighException::what(void) const _GLIBCXX_NOTHROW
+const char *Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
 {
     return _msg;
 };
 
 Bureaucrat::Bureaucrat()
 {
+    std::cout << "Bureaucrat: Default constructor called" << std::endl;
     this->_name = "Default";
     this->_grade = 150;
 };
 Bureaucrat::~Bureaucrat()
 {
-
+    std::cout << "Bureaucrat: Default distructor called" << std::endl;
 };
 Bureaucrat::Bureaucrat(std::string Name, int Grade)
 {
+    std::cout << "Bureaucrat: constructor called" << std::endl;
     this->set_name(Name);
     this->set_grade(Grade);
 };
 Bureaucrat::Bureaucrat(Bureaucrat &copy)
 {
+    std::cout << "Bureaucrat: copy constructor called" << std::endl;
     this->_name = copy._name;
     this->_grade = copy._grade;
 };
+
 Bureaucrat &Bureaucrat::operator=(Bureaucrat &copy)
 {
     this->_name = copy._name;
@@ -58,7 +62,7 @@ void Bureaucrat::set_name(std::string Name)
         this->_name = Name;
 };
 
-std::string Bureaucrat::get_name(void)
+std::string Bureaucrat::get_name(void) const
 {
     return(this->_name);
 };
@@ -86,7 +90,7 @@ void Bureaucrat::decrement(void)
         this->_grade += 1;
 };
 
-int Bureaucrat::get_grade(void)
+int Bureaucrat::get_grade(void) const
 {
     return(this->_grade);
 };
@@ -100,6 +104,25 @@ void Bureaucrat::signForm(AForm &a)
     }
     else
     {
+        throw(GradeTooHighException("it's too High"));
         std::cout << this->_name << ": couldn’t sign " << a.get_name() << " because the it require a higher grade." << std::endl;
+    }
+};
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    if (!form.get_is_signed())
+    {
+        std::cout << " You need to sign the form first." << std::endl;
+        return ;
+    }
+    if (this->get_grade() <= form.get_grade_to_execute())
+    {
+        form.execute(*this);
+    }
+    else
+    {
+        throw(GradeTooHighException("it's too High"));
+        std::cout << this->_name << ": couldn’t execute " << form.get_name() << " because the it require a higher grade." << std::endl;
     }
 };

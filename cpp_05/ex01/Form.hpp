@@ -24,7 +24,7 @@ class Form
             
             public:
                 GradeTooHighException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         class GradeTooLowException : public std::exception
         {
@@ -33,7 +33,7 @@ class Form
             
             public:
                 GradeTooLowException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         Form(void);
         ~Form(void);
@@ -41,13 +41,10 @@ class Form
         Form(Form &copy);
         Form &operator=(Form &copy);
         std::string get_name(void);
-        // void set_name(std::string Name);
         int get_grade_to_sign(void);
-        // void set_grade_to_sign(int Grade);
         int get_grade_to_execute(void);
-        // void set_grade_to_execute(int Grade);
         bool get_is_signed(void);
-        void beSigned(Bureaucrat a);
+        void beSigned(Bureaucrat &a);
 };
 std::ostream &operator<<(std::ostream &os, Form &copy);
 

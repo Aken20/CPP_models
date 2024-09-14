@@ -4,7 +4,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const char* msg): _msg(ms
 {
 };
 
-const char *Bureaucrat::GradeTooLowException::what(void) const _GLIBCXX_NOTHROW
+const char *Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
 {
     return _msg;
 };
@@ -13,13 +13,14 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char* msg): _msg(
 {
 };
 
-const char *Bureaucrat::GradeTooHighException::what(void) const _GLIBCXX_NOTHROW
+const char *Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
 {
     return _msg;
 };
 
 Bureaucrat::Bureaucrat()
 {
+    std::cout << "Bureaucrat: Default constructor called" << std::endl;
     this->_name = "Default";
     this->_grade = 150;
 };
@@ -29,6 +30,7 @@ Bureaucrat::~Bureaucrat()
 };
 Bureaucrat::Bureaucrat(std::string Name, int Grade)
 {
+    std::cout << "constructor called" << std::endl;
     this->set_name(Name);
     this->set_grade(Grade);
 };

@@ -20,7 +20,7 @@ class Bureaucrat
             
             public:
                 GradeTooHighException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         class GradeTooLowException : public std::exception
         {
@@ -29,7 +29,7 @@ class Bureaucrat
             
             public:
                 GradeTooLowException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         Bureaucrat(void);
         ~Bureaucrat(void);

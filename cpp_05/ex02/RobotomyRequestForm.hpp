@@ -2,6 +2,7 @@
 # define _ROBOTOMYREQUESTFORM_H_
 
 #include "AForm.hpp"
+#include <fstream>
 
 class RobotomyRequestForm : public AForm
 {
@@ -14,7 +15,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(RobotomyRequestForm &copy);
         ~RobotomyRequestForm(void);
         RobotomyRequestForm &operator=(RobotomyRequestForm &copy);
-        void execute(Bureaucrat const & executor) const;
+        void execute(Bureaucrat const & executor) const ;
 };
 std::ostream &operator<<(std::ostream &os, RobotomyRequestForm &copy);
 

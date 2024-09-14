@@ -2,6 +2,7 @@
 # define _SHRUBBERYCREATIONFORM_H_
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -14,7 +15,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(ShrubberyCreationForm &copy);
         ~ShrubberyCreationForm(void);
         ShrubberyCreationForm &operator=(ShrubberyCreationForm &copy);
-        void execute(Bureaucrat const & executor) const;
+        void execute(Bureaucrat const & executor) const ;
 };
 std::ostream &operator<<(std::ostream &os, ShrubberyCreationForm &copy);
 

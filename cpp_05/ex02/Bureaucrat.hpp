@@ -22,7 +22,7 @@ class Bureaucrat
             
             public:
                 GradeTooHighException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         class GradeTooLowException : public std::exception
         {
@@ -31,20 +31,21 @@ class Bureaucrat
             
             public:
                 GradeTooLowException(const char* msg);
-                const char *what(void) const _GLIBCXX_NOTHROW;
+                const char *what(void) const _NOEXCEPT;
         };
         Bureaucrat(void);
         ~Bureaucrat(void);
         Bureaucrat(std::string Name, int Grade);
         Bureaucrat(Bureaucrat &copy);
         Bureaucrat &operator=(Bureaucrat &copy);
-        std::string get_name(void);
-        int get_grade(void);
+        std::string get_name(void) const;
+        int get_grade(void) const;
         void set_name(std::string Name);
         void set_grade(int Grade);
         void increment(void);
         void decrement(void);
         void signForm(AForm &a);
+        void executeForm(AForm const & form);
 };
 std::ostream &operator<<(std::ostream &os, Bureaucrat &copy);
 
