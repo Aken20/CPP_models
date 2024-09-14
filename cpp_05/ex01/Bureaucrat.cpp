@@ -90,3 +90,16 @@ int Bureaucrat::get_grade(void)
 {
     return(this->_grade);
 };
+
+void Bureaucrat::signForm(Form &a)
+{
+    if (this->get_grade() <= a.get_grade_to_sign())
+    {
+        a.beSigned(*this);
+        std::cout << this->_name << ": Signed " << a.get_name() << std::endl;
+    }
+    else
+    {
+        std::cout << this->_name << ": couldn’t sign " << a.get_name() << " because the it require a higher grade." << std::endl;
+    }
+};
