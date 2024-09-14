@@ -1,51 +1,47 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::GradeTooLowException::GradeTooLowException(const char* msg): _msg(msg)
+AForm::GradeTooLowException::GradeTooLowException(const char* msg): _msg(msg)
 {
 };
 
-const char *Form::GradeTooLowException::what(void) const _GLIBCXX_NOTHROW
+const char *AForm::GradeTooLowException::what(void) const _GLIBCXX_NOTHROW
 {
     return _msg;
 };
 
-Form::GradeTooHighException::GradeTooHighException(const char* msg): _msg(msg)
+AForm::GradeTooHighException::GradeTooHighException(const char* msg): _msg(msg)
 {
 };
 
-const char *Form::GradeTooHighException::what(void) const _GLIBCXX_NOTHROW
+const char *AForm::GradeTooHighException::what(void) const _GLIBCXX_NOTHROW
 {
     return _msg;
 };
 
-Form::Form(): _name("Form"), _grade_to_sign(10), _grade_to_execute(10)
-{
-    this->_is_signed = false;
-};
-Form::~Form()
+AForm::~AForm()
 {
 
 };
-Form::Form(std::string const Name, int Grade_to_sign, int Grade_to_execute): _name(Name), _grade_to_sign(Grade_to_sign), _grade_to_execute(Grade_to_execute)
+AForm::AForm(std::string const Name, int Grade_to_sign, int Grade_to_execute): _name(Name), _grade_to_sign(Grade_to_sign), _grade_to_execute(Grade_to_execute)
 {
     this->_is_signed = false;
 };
-Form::Form(Form &copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute)
+AForm::AForm(AForm &copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute)
 {
     this->_is_signed = copy._is_signed;
 };
-Form &Form::operator=(Form &copy)
+AForm &AForm::operator=(AForm &copy)
 {
     return (copy);
 };
 
-std::ostream &operator<<(std::ostream &os, Form &copy)
+std::ostream &operator<<(std::ostream &os, AForm &copy)
 {
-    os << copy.get_name() << " Form grade to signed " << copy.get_grade_to_sign() << ".";
+    os << copy.get_name() << " AForm grade to signed " << copy.get_grade_to_sign() << ".";
     return os;
 };
 
-// void Form::set_name(std::string Name)
+// void AForm::set_name(std::string Name)
 // {
 //     if (Name.empty() || isdigit(Name[0]))
 //         std::cout << "Error:\n Pleas give a valid Name" << std::endl;
@@ -53,22 +49,22 @@ std::ostream &operator<<(std::ostream &os, Form &copy)
 //         this->_name = Name;
 // };
 
-std::string Form::get_name(void)
+std::string AForm::get_name(void)
 {
     return(this->_name);
 };
 
-int Form::get_grade_to_sign(void)
+int AForm::get_grade_to_sign(void)
 {
     return(this->_grade_to_sign);
 };
 
-int Form::get_grade_to_execute(void)
+int AForm::get_grade_to_execute(void)
 {
     return(this->_grade_to_execute);
 };
 
-// void Form::set_grade_to_execute(int Grade)
+// void AForm::set_grade_to_execute(int Grade)
 // {
 //     if (Grade > 150)
 //         throw(GradeTooLowException("it's too low"));
@@ -77,7 +73,7 @@ int Form::get_grade_to_execute(void)
 //     this->_grade_to_execute = Grade;
 // };
 
-// void Form::set_grade_to_sign(int Grade)
+// void AForm::set_grade_to_sign(int Grade)
 // {
 //     if (Grade > 150)
 //         throw(GradeTooLowException("it's too low"));
@@ -86,12 +82,12 @@ int Form::get_grade_to_execute(void)
 //     this->_grade_to_sign = Grade;
 // };
 
-bool Form::get_is_signed(void)
+bool AForm::get_is_signed(void)
 {
     return this->_is_signed;
 };
 
-void Form::beSigned(Bureaucrat a)
+void AForm::beSigned(Bureaucrat a)
 {
     if (a.get_grade() > this->_grade_to_sign)
         throw(GradeTooLowException("it's too low"));

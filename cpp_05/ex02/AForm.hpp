@@ -1,5 +1,5 @@
-#ifndef _FORM_H_
-# define _FORM_H_
+#ifndef _AFORM_H_
+# define _AFORM_H_
 
 #include <iostream>
 #include <exception>
@@ -35,21 +35,18 @@ class AForm
                 GradeTooLowException(const char* msg);
                 const char *what(void) const _GLIBCXX_NOTHROW;
         };
-        Form(void);
-        ~Form(void);
-        Form(std::string const Name, int Grade_to_sign, int Grade_to_execute);
-        Form(Form &copy);
-        Form &operator=(Form &copy);
+        AForm(std::string const Name, int Grade_to_sign, int Grade_to_execute);
+        AForm(AForm &copy);
+        virtual ~AForm(void);
+        AForm &operator=(AForm &copy);
         std::string get_name(void);
-        // void set_name(std::string Name);
         int get_grade_to_sign(void);
-        // void set_grade_to_sign(int Grade);
         int get_grade_to_execute(void);
-        // void set_grade_to_execute(int Grade);
         bool get_is_signed(void);
+        virtual void execute(Bureaucrat const & executor) const = 0;
         void beSigned(Bureaucrat a);
 };
-std::ostream &operator<<(std::ostream &os, Form &copy);
+std::ostream &operator<<(std::ostream &os, AForm &copy);
 
 
 #endif

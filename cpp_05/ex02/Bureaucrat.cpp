@@ -91,7 +91,7 @@ int Bureaucrat::get_grade(void)
     return(this->_grade);
 };
 
-void Bureaucrat::signForm(Form &a)
+void Bureaucrat::signForm(AForm &a)
 {
     if (this->get_grade() <= a.get_grade_to_sign())
     {
