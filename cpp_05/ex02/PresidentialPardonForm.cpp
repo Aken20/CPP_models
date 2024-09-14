@@ -2,7 +2,14 @@
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5)
 {
+    this->_target = "Default target";
 };
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target)
+{
+
+};
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 

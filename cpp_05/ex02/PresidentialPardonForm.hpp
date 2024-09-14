@@ -5,9 +5,12 @@
 
 class PresidentialPardonForm : public AForm
 {
+    private:
+        std::string _target;
+
     public:
         PresidentialPardonForm();
-        PresidentialPardonForm(std::string const Name, int Grade_to_sign, int Grade_to_execute);
+        PresidentialPardonForm(std::string target);
         PresidentialPardonForm(PresidentialPardonForm &copy);
         ~PresidentialPardonForm(void);
         PresidentialPardonForm &operator=(PresidentialPardonForm &copy);
