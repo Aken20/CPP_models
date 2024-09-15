@@ -2,6 +2,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -16,24 +17,32 @@ int main()
         std::cout << test << std::endl;
         // test.increment();
         // std::cout << test << std::endl;
-        ShrubberyCreationForm shrubbery("mindoksai");
-        std::cout << shrubbery << std::endl;
-        test.executeForm(shrubbery);
-        test.signForm(shrubbery);
-        std::cout << shrubbery << std::endl;
-        test.executeForm(shrubbery);
-        RobotomyRequestForm robot("mindokstai");
-        std::cout << robot << std::endl;
-        test.executeForm(robot);
-        test.signForm(robot);
-        std::cout << robot << std::endl;
-        test.executeForm(robot);
-        PresidentialPardonForm pardon("mindokstai");
-        std::cout << pardon << std::endl;
-        test.executeForm(pardon);
-        test.signForm(pardon);
-        std::cout << pardon << std::endl;
-        test.executeForm(pardon);
+        // ShrubberyCreationForm shrubbery("mindoksai");
+        // std::cout << shrubbery << std::endl;
+        // test.executeForm(shrubbery);
+        // test.signForm(shrubbery);
+        // std::cout << shrubbery << std::endl;
+        // test.executeForm(shrubbery);
+        // RobotomyRequestForm robot("mindokstai");
+        // std::cout << robot << std::endl;
+        // test.executeForm(robot);
+        // test.signForm(robot);
+        // std::cout << robot << std::endl;
+        // test.executeForm(robot);
+        // PresidentialPardonForm pardon("mindokstai");
+        // std::cout << pardon << std::endl;
+        // test.executeForm(pardon);
+        // test.signForm(pardon);
+        // std::cout << pardon << std::endl;
+        // test.executeForm(pardon);
+        Intern ohoho;
+        AForm *myform;
+        myform = ohoho.makeForm("shubbery creation", "mindoksai");
+        if (!myform)
+            return 1;
+        test.signForm(*myform);
+        test.executeForm(*myform);
+
     }
     catch (std::exception &e)
     {
