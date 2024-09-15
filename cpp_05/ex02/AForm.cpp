@@ -37,10 +37,10 @@ AForm::AForm(AForm &copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign
     this->_is_signed = copy._is_signed;
 };
 
-AForm &AForm::operator=(AForm &copy)
-{
-    return (copy);
-};
+// AForm &AForm::operator=(AForm &copy)
+// {
+//     return (*this);
+// };
 
 // void AForm::set_name(std::string Name)
 // {
@@ -68,18 +68,18 @@ int AForm::get_grade_to_execute(void) const
 // void AForm::set_grade_to_execute(int Grade)
 // {
 //     if (Grade > 150)
-//         throw(GradeTooLowException("it's too low"));
+//         throw(GradeTooLowException("Grade Is Too Low"));
 //     if (Grade < 1)
-//         throw(GradeTooHighException("it's too High"));
+//         throw(GradeTooHighException("Grade Is Too High"));
 //     this->_grade_to_execute = Grade;
 // };
 
 // void AForm::set_grade_to_sign(int Grade)
 // {
 //     if (Grade > 150)
-//         throw(GradeTooLowException("it's too low"));
+//         throw(GradeTooLowException("Grade Is Too Low"));
 //     if (Grade < 1)
-//         throw(GradeTooHighException("it's too High"));
+//         throw(GradeTooHighException("Grade Is Too High"));
 //     this->_grade_to_sign = Grade;
 // };
 

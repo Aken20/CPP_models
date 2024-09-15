@@ -69,23 +69,23 @@ std::string Bureaucrat::get_name(void) const
 void Bureaucrat::set_grade(int Grade)
 {
     if (Grade > 150)
-        throw(GradeTooLowException("it's too low"));
+        throw(GradeTooLowException("Grade Is Too Low"));
     if (Grade < 1)
-        throw(GradeTooHighException("it's too High"));
+        throw(GradeTooHighException("Grade Is Too High"));
     this->_grade = Grade;
 };
 
 void Bureaucrat::increment(void)
 {
     if (this->get_grade() - 1 < 1)
-        throw(GradeTooHighException("grade is too High to increment"));
+        throw(GradeTooHighException("Grade Is Too High to increment"));
     else
         this->_grade -= 1;
 };
 void Bureaucrat::decrement(void)
 {
     if (this->get_grade() + 1 > 150)
-        throw(GradeTooLowException("grade is too Low to decrement"));
+        throw(GradeTooLowException("Grade Is Too Low to decrement"));
     else
         this->_grade += 1;
 };
@@ -104,7 +104,7 @@ void Bureaucrat::signForm(AForm &a)
     }
     else
     {
-        throw(GradeTooHighException("it's too High"));
+        throw(GradeTooHighException("Grade Is Too High"));
         std::cout << this->_name << ": couldn’t sign " << a.get_name() << " because the it require a higher grade." << std::endl;
     }
 };
@@ -122,7 +122,7 @@ void Bureaucrat::executeForm(AForm const & form)
     }
     else
     {
-        throw(GradeTooHighException("it's too High"));
+        throw(GradeTooHighException("Grade Is Too High"));
         std::cout << this->_name << ": couldn’t execute " << form.get_name() << " because the it require a higher grade." << std::endl;
     }
 };

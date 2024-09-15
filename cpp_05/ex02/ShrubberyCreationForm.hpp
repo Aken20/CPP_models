@@ -16,6 +16,8 @@ class ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm(void);
         ShrubberyCreationForm &operator=(ShrubberyCreationForm &copy);
         void execute(Bureaucrat const & executor) const ;
+        std::string get_target(void);
+        void set_target(std::string target);
 };
 std::ostream &operator<<(std::ostream &os, ShrubberyCreationForm &copy);
 

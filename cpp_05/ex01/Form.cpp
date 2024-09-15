@@ -43,7 +43,8 @@ Form::Form(Form &copy): _name(copy._name), _grade_to_sign(copy._grade_to_sign), 
 };
 Form &Form::operator=(Form &copy)
 {
-    return (copy);
+    this->_is_signed = copy._is_signed;
+    return (*this);
 };
 
 std::ostream &operator<<(std::ostream &os, Form &copy)
