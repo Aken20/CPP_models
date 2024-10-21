@@ -37,7 +37,7 @@ int main()
         // test.executeForm(pardon);
         Intern ohoho;
         AForm *myform;
-        myform = ohoho.makeForm("shubbery creation", "mindoksai");
+        myform = ohoho.makeForm("shrubbery creation", "mindoksai");
         if (!myform)
             return 1;
         test.signForm(*myform);
