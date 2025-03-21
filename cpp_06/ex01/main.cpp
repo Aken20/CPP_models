@@ -1,16 +1,21 @@
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    if (ac == 2)
-    {
-        if (av[1])
-            ScalarConverter::convert(av[1]);
-    }
-    else
-    {
-        std::cerr << "INVALID INPUT" << std::endl;
-        return 1;
-    }
-    return 0;
+    Data a;
+    Data *b;
+    uintptr_t serialized_data;
+
+    a.id = 42;
+    a.value = "Just Chilling";
+
+    std::cout << a.id << " " << a.value << std::endl;
+    std::cout << &a << std::endl;
+
+    serialized_data = Serializer::serialize(&a);
+    std::cout << serialized_data << std::endl;
+
+    b = Serializer::deserialize(serialized_data);
+    std::cout << b << std::endl;
+    std::cout << b->id << " " << b->value << std::endl;
 }
