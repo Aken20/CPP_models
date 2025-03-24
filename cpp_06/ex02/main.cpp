@@ -6,6 +6,7 @@ int main()
     std::srand(std::time(0));
 
     t = generate();
-
+    identify(t);
+    identify(*t);
     delete t;
 }

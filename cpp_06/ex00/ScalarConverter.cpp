@@ -56,14 +56,44 @@ void to_char(std::string str)
         std::cout << "char: Non displayable" << std::endl;
 }
 
+bool handel_inf(std::string &str)
+{
+    if (str.length() == 3 and str.find("inf") == 0)
+        return true;
+    if (str.length() == 4 and ((str.find("inf") == 1 and (str[0] == '-' or str[0] == '+')) or (str.find("inf") == 0 and str[3] == 'f')))
+    {
+        if (str.find("inf") == 0 and str[3] == 'f')
+            str = "inf";
+        return true;
+    }
+    if (str.length() == 5 and str.find("inf") == 1 and (str[0] == '-' or str[0] == '+') and str[4] == 'f')
+    {
+        if (str[0] == '-')
+            str = "-inf";
+        else
+            str = "+inf";
+        return true;
+    }
+    return false;
+}
+
 void ScalarConverter::convert(std::string str)
 {
     if (str.length() > 1)
     {
         to_char(str);
-        to_int(str);
-        to_float(str);
-        to_double(str);
+        if (handel_inf(str))
+        {
+            std::cout << "int: " << str << std::endl;
+            std::cout << "float: " << str << "f" << std::endl;
+            std::cout << "double: " << str << std::endl;
+        }
+        else
+        {
+            to_int(str);
+            to_float(str);
+            to_double(str);
+        }
     }
     else
     {

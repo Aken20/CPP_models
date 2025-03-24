@@ -7,11 +7,11 @@
 class ScalarConverter
 {
     private:
-        static void to_int(std::string str);
-        static void to_float(std::string str);
-        static void to_double(std::string str);
-        static void to_char(std::string str);
-
+        ScalarConverter();
+        ScalarConverter(ScalarConverter &copy);
+        ScalarConverter& operator=(ScalarConverter &copy);
+        ~ScalarConverter();
+        
     public:
         static void convert(std::string str);
 };
