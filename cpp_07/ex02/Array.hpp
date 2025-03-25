@@ -1,9 +1,32 @@
 # pragma once
 #include <iostream>
+#include <random>
+#include <exception>
+#define MAX_VAL 750
 
 template <typename T>
 class Array
 {
+    private:
+        T* array;
+        unsigned int _size;
+
     public:
-    Array()
-}
+        class Out_Of_Range : public std::exception
+        {
+            private:
+                const char* _msg;
+            
+            public:
+                Out_Of_Range(const char* msg);
+                const char *what(void) const _NOEXCEPT;
+        };
+        Array();
+        ~Array();
+        Array(unsigned int n);
+        Array(Array &copy);
+        Array &operator=(Array &copy);
+        T &operator[](unsigned int n);
+        unsigned int size();
+
+};
