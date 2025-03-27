@@ -1,20 +1,18 @@
 #include <iostream>
 #include "Array.tpp"
 
-int main(int, char**)
+int main()
 {
-    // int * a = new int();
-    // std::cout << *a << std::endl;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+    std::srand(std::time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+    // //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);

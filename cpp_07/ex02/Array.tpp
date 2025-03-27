@@ -4,7 +4,7 @@ template <typename T>
 Array<T>::Out_Of_Range::Out_Of_Range(const char* msg): _msg(msg) {}
 
 template <typename T>
-const char *Array<T>::Out_Of_Range::what(void) const _NOEXCEPT
+const char *Array<T>::Out_Of_Range::what(void) const throw()
 {
     return _msg;
 }
@@ -31,9 +31,9 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::Array(Array<T> &copy)
 {
-    _size = copy.size();
-    array = new T[copy.size()];
-    for (unsigned int i = 0; i <= copy.size(); i++)
+    _size = copy._size;
+    array = new T[copy._size];
+    for (unsigned int i = 0; i < copy.size(); i++)
         array[i] = copy[i];
 }
 
@@ -54,7 +54,7 @@ Array<T> &Array<T>::operator=(Array<T> &copy)
 template <typename T>
 T& Array<T>::operator[](unsigned int n)
 {
-    if (n <= _size)
+    if (n < _size)
         return array[n];
     else
         throw Out_Of_Range("Index is out of Range.");

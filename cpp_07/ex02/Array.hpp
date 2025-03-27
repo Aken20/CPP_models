@@ -1,6 +1,7 @@
 # pragma once
 #include <iostream>
-#include <random>
+#include <cstdlib>
+#include <ctime>
 #include <exception>
 #define MAX_VAL 750
 
@@ -19,7 +20,7 @@ class Array
             
             public:
                 Out_Of_Range(const char* msg);
-                const char *what(void) const _NOEXCEPT;
+                const char *what(void) const throw();
         };
         Array();
         ~Array();
