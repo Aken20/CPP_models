@@ -10,7 +10,7 @@ void iter(P *address, L length, F func)
         return ;
     
     for (L i = 0; i < length; i++)
-        address[i] = func(address[i]);
+        func(address[i]);
 }
 
 #endif
