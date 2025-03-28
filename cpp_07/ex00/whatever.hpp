@@ -1,4 +1,6 @@
-# pragma once
+#ifndef _WHATEVER_H_
+# define _WHATEVER_H_
+
 #include <iostream>
 
 template <typename T>
@@ -26,3 +28,5 @@ T max(T &a, T &b)
         return b;
     return a;
 }
+
+#endif

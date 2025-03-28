@@ -1,9 +1,10 @@
-# pragma once
+#ifndef _ARRAY_H_
+# define _ARRAY_H_
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <exception>
-#define MAX_VAL 750
 
 template <typename T>
 class Array
@@ -31,3 +32,5 @@ class Array
         unsigned int size();
 
 };
+
+#endif
