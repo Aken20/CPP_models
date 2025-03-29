@@ -30,6 +30,8 @@ class Span
         Span &operator=(Span &copy);
         int &operator[](unsigned int n);
         void addNumber(int num);
+        void addNumber_range(int start, int end, int jump);
+        void print(void);
         int shortestSpan(void);
         int longestSpan(void);
 

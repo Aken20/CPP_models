@@ -62,19 +62,69 @@ void Span::addNumber(int num)
     else
         throw SPAN_EXCEPT("the Limit has been exceded.");
 }
+
+void Span::addNumber_range(int start, int end, int jump)
+{
+    int a = start;
+    if (jump == 0)
+        throw SPAN_EXCEPT("Jump Cannot be zero.");
+    if (jump > 0)
+    {
+        while (a <= end)
+        {
+            try
+            {
+                addNumber(a);
+            }
+            catch(const std::exception &e)
+            {
+                return ;
+            }
+            a += jump;
+        }
+    }
+    else
+    {
+        while (a >= end)
+        {
+            try
+            {
+                addNumber(a);
+            }
+            catch(const std::exception &e)
+            {
+                return ;
+            }
+            a += jump;
+        }
+    }
+}
 int Span::shortestSpan(void)
 {
+    int a;
+    a = _size;
     if (_size < 2)
         throw SPAN_EXCEPT("Not Enough.");
     std::sort(_array, _array + _size);
-    for (unsigned int i = 0; i < _size; i++)
-        std::cout << _array[i] << std::endl;
-    return 0;
+    for (unsigned int i = 1; i < _size - 1; i++)
+    {
+        if (std::abs(_array[i]) - std::abs(_array[i-1]) < a)
+            a = _array[i] - _array[i-1];
+    }
+    return a;
 };
+
+void Span::print(void)
+{
+    for (unsigned int i = 0; i < _size; i++)
+        std::cout << _array[i] << " ";
+    std::cout << std::endl;
+};
+
 int Span::longestSpan(void)
 {
     if (_size < 2)
         throw SPAN_EXCEPT("Not Enough.");
     std::sort(_array, _array + _size);
-    return 0;
+    return std::abs(_array[_size - 1]) - std::abs(_array[0]);
 }
