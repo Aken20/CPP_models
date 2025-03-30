@@ -1,67 +1,39 @@
 #include "MutantStack.hpp"
 
-template <typename T>
-Array<T>::Out_Of_Range::Out_Of_Range(const char* msg): _msg(msg) {}
-
-template <typename T>
-const char *Array<T>::Out_Of_Range::what(void) const throw()
+template <typename T, class C>
+MutantStack<T, C>::MutantStack(): std::stack<T, C>()
 {
-    return _msg;
-}
-
-template <typename T>
-Array<T>::Array()
-{
-    _size = 0;
-}
-
-template <typename T>
-Array<T>::~Array()
-{
-    if (_size > 0)
-        delete[] array;
-}
-
-template <typename T>
-Array<T>::Array(unsigned int n)
-{
-    _size = n;
-    array = new T[n];
-}
-template <typename T>
-Array<T>::Array(Array<T> &copy)
-{
-    _size = copy._size;
-    array = new T[copy._size];
-    for (unsigned int i = 0; i < copy.size(); i++)
-        array[i] = copy[i];
-}
-
-template <typename T>
-Array<T> &Array<T>::operator=(Array<T> &copy)
-{
-    if (_size > 0)
-    {
-        delete[] array;
-        _size = copy.size();
-        array = new T[copy.size()];
-        for (unsigned int i = 0; i <= copy.size(); i++)
-            array[i] = copy[i];
-    }
 
 }
 
-template <typename T>
-T& Array<T>::operator[](unsigned int n)
+
+template <typename T, class C>
+MutantStack<T, C>::~MutantStack()
 {
-    if (n < _size)
-        return array[n];
-    else
-        throw Out_Of_Range("Index is out of Range.");
+
 }
 
-template <typename T>
-unsigned int Array<T>::size()
+template <typename T, class C>
+MutantStack<T, C>::MutantStack(MutantStack &copy): std::stack<T, C>(copy)
 {
-    return _size;
+
+}
+
+template <typename T, class C>
+MutantStack<T, C> &MutantStack<T, C>::operator=(MutantStack<T, C> &copy)
+{
+    this->stack = copy.stack;
+    return *this;
+}
+
+template <typename T, class C>
+typename C::iterator MutantStack<T, C>::begin(void)
+{
+    return this->c.begin();
+}
+
+template <typename T, class C>
+typename C::iterator MutantStack<T, C>::end(void)
+{
+    return this->c.end();
 }

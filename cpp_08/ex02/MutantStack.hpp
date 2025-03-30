@@ -8,19 +8,20 @@
 #include <deque>
 #include <vector>
 
-template <typename T, typename C = deque>
-class MutantStack<T, C = deque> : public std::stack<T, C>
+template <typename T, class C = std::deque<T> >
+class MutantStack : public std::stack<T, C>
 {
     private:
-        typename C::iterator iterator;
-
+    
     public:
-        MutantStack();
+        typedef typename C::iterator iterator;
+
         MutantStack();
         ~MutantStack();
         MutantStack(MutantStack &copy);
         MutantStack &operator=(MutantStack &copy);
-
+        iterator begin(void);
+        iterator end(void);
 
 };
 
